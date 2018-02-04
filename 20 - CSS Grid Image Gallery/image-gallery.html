@@ -47,7 +47,7 @@
 
     .close {
       background: none;
-      color: black;
+      color: #000;
       border: 0;
     }
 
@@ -74,15 +74,15 @@
     }
 
     .item__overlay {
-      background: #ffc60032;
+      background-color: #ffc60032;
       grid-column: 1 / -1;
       grid-row: 1 / -1;
       position: relative;
       display: grid;
       justify-items: center;
       align-items: center;
-      transition: 0.2s;
       transform: translateY(100%);
+      transition: .2s;
     }
 
     .item__overlay button {
@@ -90,14 +90,13 @@
       border: 2px solid white;
       color: white;
       text-transform: uppercase;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, .7);
       padding: 5px;
     }
 
     .item:hover .item__overlay {
       transform: translateY(0);
     }
-
 
     .item.v2 {
       grid-row: span 2;
@@ -153,10 +152,11 @@
   </style>
 
   <script>
+
     const gallery = document.querySelector('.gallery');
     const overlay = document.querySelector('.overlay');
-    const overlayImage = overlay.querySelector('img');
-    const overlayClose = overlay.querySelector('.close');
+    const overlayImage = document.querySelector('img');
+    const overlayClose = document.querySelector('.close');
 
     function generateHTML([h, v]) {
       return `
@@ -179,12 +179,12 @@
       overlay.classList.add('open');
     }
 
-
     function close() {
       overlay.classList.remove('open');
     }
 
-    const digits = Array.from({ length: 50 }, () => [randomNumber(4), randomNumber(4)]).concat([[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1]])
+    const digits = Array.from({ length: 50 }, () =>
+    [randomNumber(4), randomNumber(4)]).concat([[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]);
 
     const html = digits.map(generateHTML).join('');
     gallery.innerHTML = html;
@@ -194,7 +194,6 @@
     items.forEach(item => item.addEventListener('click', handleClick));
 
     overlayClose.addEventListener('click', close);
-
   </script>
 </body>
 
