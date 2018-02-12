@@ -12,8 +12,6 @@ img {
   max-width: 100%;
 }
 
-/* .wrapper */
-
 .wrapper {
   display: grid;
   grid-gap: 20px;
@@ -28,25 +26,28 @@ img {
 }
 
 .hero {
-  grid-area: hero;
   min-height: 400px;
+  padding: 50px;
+
   background: white url(images/taco.jpg);
   background-size: cover;
   background-position: bottom right;
-  padding: 50px;
+
+  grid-area: hero;
+
   display: flex;
   flex-direction: column;
-  align-items: start;
   justify-content: center;
+  align-items: start;
 }
 
 .hero > * {
-  background: var(--yellow);
+  background-color: var(--yellow);
   padding: 5px;
 }
 
 .cta {
-  background: var(--yellow);
+  background-color: var(--yellow);
   display: grid;
   align-items: center;
   justify-items: center;
@@ -69,8 +70,6 @@ img {
   font-size: 60px;
   font-weight: 300;
 }
-
-/* Navigation */
 
 .menu ul {
   display: grid;
@@ -95,8 +94,6 @@ img {
   display: none;
 }
 
-/* Features! */
-
 .features {
   display: grid;
   grid-gap: 20px;
@@ -108,27 +105,24 @@ img {
   padding: 10px;
   border: 1px solid white;
   text-align: center;
-  box-shadow: 0 0 4px  rgba(0,0,0,0.1);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 .feature .icon {
   font-size: 50px;
 }
-.feature p {
-  color: rgba(0,0,0,0.5);
-}
 
-/* About Section */
+.feature p {
+  color: rgba(0, 0, 0, 0.5);
+}
 
 .about {
   background: white;
-  padding:50px;
+  padding: 50px;
   display: grid;
   grid-template-columns: 400px 1fr;
   align-items: center;
 }
-
-/* Gallery! */
 
 .gallery {
   display: grid;
@@ -148,14 +142,15 @@ img {
   align-items: center;
 }
 
-.gallery h2:before, .gallery h2:after {
+.gallery h2::before,
+.gallery h2::after {
   display: block;
-  content: '';
+  content: "";
   height: 10px;
   background: linear-gradient(to var(--direction, left), var(--yellow), transparent);
 }
 
-.gallery h2:after {
+.gallery h2::after {
   --direction: right;
 }
 
@@ -164,6 +159,7 @@ img {
     order: -1;
     perspective: 800px;
   }
+
   [aria-controls="menu-list"] {
     display: block;
     margin-bottom: 10px;
@@ -193,7 +189,6 @@ img {
   [aria-expanded="true"] .open {
     display: none;
   }
-
 }
 
 @media (max-width: 700px) {
@@ -202,7 +197,7 @@ img {
       "hero hero"
       "cta1 cta2"
   }
-  /* About */
+
   .about {
     grid-template-columns: 1fr;
   }
